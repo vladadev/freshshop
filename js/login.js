@@ -1,80 +1,52 @@
-$(document).ready(function (){
-    $('#formLogin').submit(function (event){
-        loginCheck(event);
-    })
+$(document).ready(function () {
+  $('#formLogin').submit(function (event) {
+    loginCheck(event)
+  })
 })
 
 function loginCheck(event) {
-    let $email = $('#loginEmail');
-    let $password = $('#loginPassword');
+  let $email = $('#loginEmail')
+  let $password = $('#loginPassword')
 
-    let errors = [];
+  let errors = []
 
-    let validateEmail = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-    let validatePassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{5,}$/;
+  let validateEmail = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+  let validatePassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{5,}$/
 
-    //Email
-    if($email.val() == "") {
-        errors.push("Email obavezan!");
-        event.preventDefault();
+  //Email
+  if ($email.val() == '') {
+    errors.push('Enter e-mail address!')
+    event.preventDefault()
+  } else {
+    if (validateEmail.test($email.val())) {
+      console.log('email  ok!')
     } else {
-        if(validateEmail.test($email.val())) {
-
-            console.log('email  dobro!');
-        } else {
-            errors.push("E-mail nije u dobrom formatu. Treba biti u formatu: primer@gmail.com");
-            event.preventDefault();
-        }
+      errors.push(
+        'E-mail is not in a good format. Expected format: example@gmail.com',
+      )
+      event.preventDefault()
     }
-    //Password
-    if($password.val() == "") {
-        errors.push("Password je obavezan!");
-        event.preventDefault();
+  }
+  //Password
+  if ($password.val() == '') {
+    errors.push('Enter password!')
+    event.preventDefault()
+  } else {
+    if (validatePassword.test($password.val())) {
+      console.log('Ime ok!')
     } else {
-        if(validatePassword.test($password.val())) {
-
-            console.log('ime dobro!');
-        } else {
-            errors.push("Password mora imati minimum 5 karaktera, jedan broj i minimum jedno veliko i malo slovo!");
-            event.preventDefault();
-        }
+      errors.push(
+        'Password must have minimum 5 characters, 1 number and 1 capital letter!',
+      )
+      event.preventDefault()
     }
+  }
 
-    let html = '';
-    if (errors.length !== 0) {
-        for(let i=0; i<errors.length; i++) {
-            html += `${errors[i]}<br>`;
-        }
-        $('#loginFormErrors').html(html);
-
+  let html = ''
+  if (errors.length !== 0) {
+    for (let i = 0; i < errors.length; i++) {
+      html += `${errors[i]}<br>`
     }
-    // else {
-    //     // return true;
-    //
-    //
-    // }
-
-
+    $('#loginFormErrors').html(html)
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
