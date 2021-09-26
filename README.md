@@ -1,6 +1,6 @@
 # freshshop
 E-commerce HTML/CSS/JS/PHP/MySQL app
-Things you can do on site:
+<h1>Things you can do on site:</h1>
   -Chose products for purchase and add them to cart
   -Eddit cart
   -Send message through contact form
