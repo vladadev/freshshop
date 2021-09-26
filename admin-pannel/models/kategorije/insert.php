@@ -1,33 +1,31 @@
 <?php
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['submit-new-category']){
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['submit-new-category']) {
+    $url =
+        'location: ' .
+        NEW_BASE_URL .
+        'admin-pannel/admin-index.php?admin-page=kategorije';
 
-	$url = "location: " . BASE_URL . "admin-pannel/admin-index.php?admin-page=kategorije";
-	
-	$nazivCateg = $_POST['naziv-categ'];
+    $nazivCateg = $_POST['naziv-categ'];
 
-	if (empty($nazivCateg)) {
-		header($url . "&error=Fill the form correctly");
-	} else {
+    if (empty($nazivCateg)) {
+        header($url . '&error=Fill the form correctly');
+    } else {
+        $queryCategInsert = $conn->prepare("INSERT INTO kategorija(naziv) 
+		 								   VALUES(:naziv)");
 
-		$queryCategInsert = $conn ->prepare("INSERT INTO kategorija(naziv) 
-		 								   VALUES(:naziv)");	
+        $queryCategInsert->bindParam(':naziv', $nazivCateg);
+        try {
+            $execInsert = $queryCategInsert->execute();
+        } catch (Exception $e) {
+        }
 
-		$queryCategInsert -> bindParam(':naziv', $nazivCateg);
-		try {
-
-			$execInsert = $queryCategInsert->execute();
-			
-		} catch (Exception $e) {
-			
-		}
-
-		
-	    header($url . "&success=Insert uccessfully executed");
-
-
+        header($url . '&success=Insert uccessfully executed');
     }
-}
-else {
-	header('location: '.BASE_URL.'admin-pannel/admin-index.php?admin-page=kategorije&errorInsert=Neovlasceni pristup');
+} else {
+    header(
+        'location: ' .
+            NEW_BASE_URL .
+            'admin-pannel/admin-index.php?admin-page=kategorije&errorInsert=Neovlasceni pristup'
+    );
 }
