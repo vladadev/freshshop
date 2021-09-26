@@ -1,11 +1,9 @@
 
 
-<?php  
-
-$querySlider = $conn -> prepare("SELECT * FROM slider");
+<?php
+$querySlider = $conn->prepare('SELECT * FROM slider');
 $querySlider->execute();
 $result = $querySlider->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
 
 <!-- Start Slider -->
@@ -13,7 +11,9 @@ $result = $querySlider->fetchAll(PDO::FETCH_ASSOC);
         <ul class="slides-container">
             <?php foreach ($result as $value): ?>
             <li class="text-center">
-                <img src="<?php echo BASE_URL . 'images/slider/' . $value['src']; ?>" alt="">
+                <img src="<?php echo BASE_URL .
+                    'images/slider/' .
+                    $value['src']; ?>" alt="">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -33,11 +33,11 @@ $result = $querySlider->fetchAll(PDO::FETCH_ASSOC);
     <!-- End Slider -->
 
     <?php
-
-    $queryCheapestProducts = $conn -> prepare("SELECT * FROM artikal a INNER JOIN slika_artikal sa ON a.id_artikal = sa.artikal_id INNER JOIN slika s ON s.id_slika = sa.slika_id ORDER BY a.cena ASC LIMIT 3 ");
-    $queryCheapestProducts-> execute();
+    $queryCheapestProducts = $conn->prepare(
+        'SELECT * FROM artikal a INNER JOIN slika_artikal sa ON a.id_artikal = sa.artikal_id INNER JOIN slika s ON s.id_slika = sa.slika_id ORDER BY a.cena ASC LIMIT 6 '
+    );
+    $queryCheapestProducts->execute();
     $cheapestResults = $queryCheapestProducts->fetchAll(PDO::FETCH_ASSOC);
-
     ?>
 
     <!-- Start Categories  -->
@@ -50,8 +50,17 @@ $result = $querySlider->fetchAll(PDO::FETCH_ASSOC);
                 <?php foreach ($cheapestResults as $cheapestResult): ?>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="<?php echo 'images/artikli/' . $cheapestResult['putanja'] ?>" alt="<?php echo $cheapestResult['alt'] ?>" />
-                        <a class="btn hvr-hover" href="<?php echo BASE_URL . 'index.php?page=shop_detail&id=' . $cheapestResult['id_artikal']; ?>"><?php echo $cheapestResult['naziv'] ?></a>
+                        <img class="img-fluid" src="<?php echo 'images/artikli/' .
+                            $cheapestResult[
+                                'putanja'
+                            ]; ?>" alt="<?php echo $cheapestResult[
+    'alt'
+]; ?>" />
+                        <a class="btn hvr-hover fp-prod-info" href="<?php echo NEW_BASE_URL .
+                            'index.php?page=shop_detail&id=' .
+                            $cheapestResult[
+                                'id_artikal'
+                            ]; ?>"><?php echo $cheapestResult['naziv']; ?></a>
                     </div>
                 </div>
                 <?php endforeach; ?>

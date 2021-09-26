@@ -26,7 +26,7 @@
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="css/responsive.css">
     <!-- Custom CSS -->
-   <!-- <link rel="stylesheet" href="css/custom.css"> -->
+    <link rel="stylesheet" href="css/custom.css">
 
     <!-- moj random css file -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600;900&display=swap" rel="stylesheet">
