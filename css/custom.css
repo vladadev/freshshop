@@ -1,2 +1,70 @@
+/* Add to cart button on shop.php page */
+#add_to_cart {
+  border-radius: 0;
+  background-color: #b0b434;
+  font-weight: bold;
+  color: white;
+}
+#add_to_cart:hover {
+  background-color: #b5b946;
+}
 
-/** ADD YOUR AWESOME CODES HERE **/
+/* Shop product display option disabled */
+li.disabled {
+  cursor: not-allowed;
+}
+li.disabled a {
+  pointer-events: none;
+}
+
+/* Cart checkout button - disabled for now */
+.checkout-div {
+  cursor: not-allowed;
+}
+
+.checkout-div input {
+  pointer-events: none;
+}
+
+/* Front page product text */
+.fp-prod-info {
+  background-color: #b0b434;
+}
+.fp-prod-info:hover {
+  background-color: #b5b946;
+}
+
+/* Front page h1 text */
+.container-fluid {
+  justify-content: center;
+}
+
+/* Profile */
+.profile-headding {
+  text-align: center;
+  margin: 40px 0 30px 0;
+}
+.user-name-span {
+  color: #b0b434;
+}
+
+.update-acc-info-button {
+  padding: 10px 0;
+  background-color: #b0b435;
+  border: none;
+  width: 100%;
+}
+.update-acc-info-input {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+}
+
+.update-acc-info-input-wrapper {
+  padding: 0 0 40px 0;
+}
+
+/* form  */
+.update-profile-form {
+  margin-bottom: 40px;
+}
