@@ -12,3 +12,4 @@ E-commerce HTML/CSS/JS/PHP/MySQL website
   </li>
   <li>Users with out admin priviledges can edit only their profile information(change Name, Last name, Password and E-mail), aswell as do everyting else that's left</li>
 </ul>
+<p>Contact me for Admin account info.</p>
