@@ -1,4 +1,4 @@
-E-commerce HTML/CSS/JS/PHP/MySQL website
+E-commerce HTML/CSS/JS(jQuery)/PHP/MySQL/Ajax website
 <h1>Things you can do on website:</h1>
 <ul>
   <li>Chose products for purchase and add them to cart</li>
