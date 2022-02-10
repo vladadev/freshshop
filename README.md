@@ -2,9 +2,9 @@ E-commerce HTML/CSS/JS(jQuery)/PHP/MySQL/Ajax website
 <h1>Things you can do on website:</h1>
 <ul>
   <li>Chose products for purchase and add them to cart</li>
-  <li>Eddit cart</li>
+  <li>Edit cart</li>
   <li>Send message through contact form</li>
-  <li>Users with admin priviledges can acces admin pannel where they can manage and edit website content</li>
+  <li>Users with admin privileges can acces admin pannel where they can manage and edit website content</li>
   <li>
     <ul>
       <li>That means insert, update and delete data about products, categories, users, and messages received through contact form</li>
